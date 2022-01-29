@@ -2,6 +2,7 @@
     <string name="app_name">PoemsKurd</string>
     <string name="home_tab">ماڵەوە</string>
     <string name="category_tab">لقەکان</string>
+    <string name="search_tab">گەڕان</string>
     <string name="favorite_tab">حەزەکان</string>
     <string name="profile_tab">پرۆفایل</string>
     <!-- TODO: Remove or change this placeholder text -->

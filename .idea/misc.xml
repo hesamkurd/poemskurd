@@ -4,16 +4,22 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/poemskurd/app/src/main/res/drawable/cart_tab.xml" value="0.187" />
+        <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/poemskurd/app/src/main/res/drawable/ic_baseline_arrow_forward_24.xml" value="0.187" />
         <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/poemskurd/app/src/main/res/drawable/ic_book_selected.xml" value="0.187" />
         <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/poemskurd/app/src/main/res/drawable/ic_book_unselected.xml" value="0.187" />
         <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/poemskurd/app/src/main/res/drawable/ic_cart_selected.xml" value="0.187" />
         <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/poemskurd/app/src/main/res/drawable/ic_outline_account_circle_24.xml" value="0.187" />
         <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/poemskurd/app/src/main/res/drawable/profile_tab.xml" value="0.187" />
+        <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/poemskurd/app/src/main/res/drawable/search_tab.xml" value="0.187" />
         <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/poemskurd/app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/poemskurd/app/src/main/res/layout/fragment_category.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/poemskurd/app/src/main/res/layout/fragment_favorite.xml" value="0.17864583333333334" />
-        <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/poemskurd/app/src/main/res/layout/fragment_home.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/poemskurd/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/poemskurd/app/src/main/res/layout/fragment_profile.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/poemskurd/app/src/main/res/layout/fragment_search.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/poemskurd/app/src/main/res/layout/item_banners.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/poemskurd/app/src/main/res/layout/progerss_view.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/poemskurd/app/src/main/res/layout/toolbar.xml" value="0.22" />
         <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/poemskurd/app/src/main/res/menu/bottom_nav.xml" value="0.22" />
       </map>
     </option>

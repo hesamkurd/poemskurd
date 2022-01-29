@@ -7,6 +7,9 @@
     <item android:id="@+id/category"
         android:title="@string/category_tab"
         android:icon="@drawable/category_tab"/>
+    <item android:id="@+id/search"
+        android:title="@string/search_tab"
+        android:icon="@drawable/search_tab"/>
     <item android:id="@+id/favorite"
         android:title="@string/favorite_tab"
         android:icon="@drawable/cart_tab"/>
