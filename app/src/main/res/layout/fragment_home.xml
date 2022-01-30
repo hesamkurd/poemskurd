@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/coordinator_layout"
     android:layout_width="match_parent"
+    android:layoutDirection="rtl"
     android:layout_height="match_parent"
     android:background="@color/grey_50"
     tools:context=".feature.home.HomeFragment">
@@ -28,9 +29,10 @@
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/viewPager_banners"
                     android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/_4sdp"
                     android:paddingLeft="@dimen/_16sdp"
                     android:paddingRight="@dimen/_16sdp"
-                    android:layout_height="@dimen/_150sdp"/>
+                    android:layout_height="@dimen/_160sdp"/>
 
                 <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
                     android:layout_gravity="center"
@@ -46,6 +48,17 @@
                     app:selectedDotColor="@color/green_600"
                     app:progressMode="true"
                     />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/last_news"
+                    android:textSize="@dimen/_10sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:textColor="@color/green_600"/>
+
+              <include layout="@layout/all_poem_cardview"/>
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>

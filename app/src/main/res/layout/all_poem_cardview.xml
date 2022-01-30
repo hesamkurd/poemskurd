@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_250sdp"
+    android:layoutDirection="rtl"
+    android:layout_marginLeft="@dimen/_30sdp"
+    android:layout_marginTop="@dimen/_12sdp"
+    android:layout_marginRight="@dimen/_30sdp"
+    android:layout_marginBottom="@dimen/_6sdp"
+    app:cardBackgroundColor="@color/green_200"
+    app:cardCornerRadius="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_poem"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <EditText
+                    android:id="@+id/edt_search"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8"
+                    android:autofillHints=""
+                    android:background="@color/white"
+                    android:drawableRight="@drawable/ic_search_24"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:fontFamily="@font/ir_sans_b"
+                    android:hint="@string/hint_search"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/grey_600" />
+
+                <ImageView
+                    android:id="@+id/btn_sort"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:padding="@dimen/_4sdp"
+                    android:src="@drawable/ic_sort_24" />
+
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rc_all_poem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
+

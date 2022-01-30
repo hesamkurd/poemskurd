@@ -7,4 +7,6 @@
     <string name="profile_tab">پرۆفایل</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_search">لێگەڕە ...</string>
+    <string name="last_news">دوایین هەواڵ و بەرهەمەکان</string>
 </resources>
