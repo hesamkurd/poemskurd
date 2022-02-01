@@ -1,22 +1,31 @@
 package ir.mamhesam.poemskurd.feature.home
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 import ir.mamhesam.poemskurd.R
 import ir.mamhesam.poemskurd.base.BaseFragment
+import ir.mamhesam.poemskurd.data.ResponseAllPoems
 import ir.mamhesam.poemskurd.data.ResponseBanners
+import ir.mamhesam.poemskurd.feature.home.adapter.AllPoemAdapter
 import ir.mamhesam.poemskurd.feature.home.adapter.BannersAdapter
+import ir.mamhesam.poemskurd.feature.home.viewmodel.AllPoemViewModel
 import ir.mamhesam.poemskurd.feature.home.viewmodel.HomeViewModel
+import kotlinx.android.synthetic.main.all_poem_cardview.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -25,8 +34,12 @@ import org.koin.core.parameter.parametersOf
 class HomeFragment : BaseFragment() {
 
     val homeViewModel: HomeViewModel by viewModel()
+    val allPoemViewModel: AllPoemViewModel by viewModel ()
     val handler = Handler(Looper.myLooper()!!)
     var bannersSlider: List<ResponseBanners>? = null
+    private lateinit var data_full: ArrayList<ResponseAllPoems>
+    private lateinit var allPoemAdapter: AllPoemAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -74,6 +87,62 @@ class HomeFragment : BaseFragment() {
             setProgressBar(it)
         }
 
+        data_full = ArrayList()
+        rltv_filter.setOnClickListener {
+            val option = arrayOf("ئەلفوبێ", "مێژوو")
+            val dialog = AlertDialog.Builder(requireContext())
+            dialog.setTitle("ریز کردن بە")
+                .setItems(option){
+                    dialogInterFace,i ->
+                    if (i==0){
+
+                        data_full.clear()
+                        allPoemViewModel.poemByNameLiveData.observe(viewLifecycleOwner){
+                            allPoemAdapter= AllPoemAdapter(it as ArrayList<ResponseAllPoems>)
+                            rc_all_poem.adapter = allPoemAdapter
+                        }
+                        dialogInterFace.dismiss()
+                    }else if (i==1){
+                        data_full.clear()
+                        allPoemViewModel.poemByYearLiveData.observe(viewLifecycleOwner){
+                            allPoemAdapter= AllPoemAdapter(it as ArrayList<ResponseAllPoems>)
+                            rc_all_poem.adapter = allPoemAdapter
+                        }
+                        dialogInterFace.dismiss()
+
+                    }
+
+                }.show()
+
+        }
+
+
+        edt_search.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+                allPoemAdapter.filter.filter(p0)
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+            }
+
+        })
+
+
+        allPoemViewModel.allPoemLiveData.observe(viewLifecycleOwner){
+
+            allPoemAdapter= AllPoemAdapter(it as ArrayList<ResponseAllPoems>)
+            rc_all_poem.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
+            rc_all_poem.adapter = allPoemAdapter
+
+        }
+
+
+
 
     }
     private val sliderRunnable = Runnable {
@@ -87,11 +156,18 @@ class HomeFragment : BaseFragment() {
     override fun onPause() {
         super.onPause()
         handler.removeCallbacks(sliderRunnable)
+
     }
 
     override fun onResume() {
         super.onResume()
         handler.postDelayed(sliderRunnable, 5000)
+        allPoemViewModel.allPoemLiveData.observe(viewLifecycleOwner){
+            allPoemAdapter= AllPoemAdapter(it as ArrayList<ResponseAllPoems>)
+            rc_all_poem.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
+            rc_all_poem.adapter = allPoemAdapter
+            allPoemAdapter.notifyDataSetChanged()
+        }
     }
 
 
